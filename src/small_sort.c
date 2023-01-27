@@ -47,7 +47,7 @@ int	ft_min(t_node **stack, int number)
 //then it calls the funciton "sa" to sort.
 //if 1st number is not the min, then it checks the 2nd num
 //is min and calls "ra". Else, "sa" and "rra" functions
-// to sort
+// to sort.
 
 void	ft_sort_three_nums(t_node **stack_a)
 {
@@ -86,7 +86,8 @@ void	ft_sort_three_nums(t_node **stack_a)
 //the min element to the top of the stack.
 //next, it checks if the stack is sorted with
 //stack_is_sorted function. if sorted 
-
+//finally calls the function "pa" to move the top 
+//element of "stack_b" back to "stack_a".
 
 void	ft_sort_four_nums(t_node **stack_a, t_node **stack_b)
 {
