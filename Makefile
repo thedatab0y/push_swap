@@ -16,16 +16,18 @@ HEADER		=	/includes/push_swap.h
 
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
-LFT = -L libft -lft
+LFT = -L libft -lft #search for libft.a in "libft" to link the libft.a using the name -lft.
 
 SRCS		=	src/small_sort.c src/main.c src/ps.c \
 				src/rotate.c src/operations.c src/push_swap.c \
 				src/list.c src/checkings.c src/stack.c
-
+#SRCS = small_sort.c ps.c turns into small_sort.o ps.o with the help of $(patsubst %.c,%.o,$(SRCS)) which is the dedicated function to do such work.
 OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 
+#when make is called, lib is first built, followed by $(NAME) afterwards
 all : lib $(NAME)
 
+#for $(NAME) to be built, we need OBJS linked with INCLUDES
 $(NAME):${OBJS} ${INCLUDES} ${LIB} Makefile
 	@$(CC) $(LFT) $(CFLAGS) $(OBJS) -I includes -o $(NAME)
 
