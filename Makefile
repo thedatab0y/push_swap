@@ -27,15 +27,15 @@ OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 #when make is called, lib is first built, followed by $(NAME) afterwards
 all : lib $(NAME)
 
-#for $(NAME) to be built, we need OBJS linked with INCLUDES
+#for $(NAME) to be built, we need OBJS using directories in INCLUDES and headers in LIB. NAME is dependant to those.
 $(NAME):${OBJS} ${INCLUDES} ${LIB} Makefile
 	@$(CC) $(LFT) $(CFLAGS) $(OBJS) -I includes -o $(NAME)
-
+#runs the make in ./libft
 lib:
 	make -C ./libft
 
 %.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@# "-c $< -o $@" compile the "srs files $< into an obj files $@"
 
 clean :
 	rm -f $(OBJS)
